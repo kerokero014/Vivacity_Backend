@@ -10,3 +10,9 @@ router.put('/:id', user.updateUser); // /awesome/applicant/:id
 router.delete('/:id', user.deleteUser); // /awesome/applicant/:id
 
 export default router;
+
+
+
+
+
+  
