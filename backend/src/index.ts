@@ -8,7 +8,6 @@ const port = process.env.PORT || 3000;
 const cors = require("cors");
 
 dotenv.config();
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
