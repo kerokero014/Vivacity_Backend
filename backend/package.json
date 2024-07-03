@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
-    "swagger": "ts-node ./src/swagger.ts"
+    "dev": "ts-node-dev index.ts",
+    "swagger": "ts-node swagger.ts"
   },
   "keywords": [],
   "author": "",
