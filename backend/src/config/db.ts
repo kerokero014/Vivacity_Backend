@@ -1,16 +1,11 @@
-// Removed unused import
-const dotenv = require("dotenv");
-
-dotenv.config();
-
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PWD,
-  port: parseInt(process.env.DB_PORT as string, 10),
+  user: "database_ykw2_user",
+  host: "dpg-cq2egmlds78s73ecs9b0-a.oregon-postgres.render.com",
+  database: "database_ykw2",
+  password: "mRl7AlR3EweWOtVKnLVI7G0sFP3zzkYo",
+  port: 5432,
 });
 
 export default pool;
