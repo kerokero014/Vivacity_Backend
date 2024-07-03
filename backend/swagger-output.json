@@ -63,6 +63,12 @@
                 },
                 "address": {
                   "example": "any"
+                },
+                "github": {
+                  "example": "any"
+                },
+                "linkedin": {
+                  "example": "any"
                 }
               }
             }
@@ -134,6 +140,12 @@
                   "example": "any"
                 },
                 "address": {
+                  "example": "any"
+                },
+                "github": {
+                  "example": "any"
+                },
+                "linkedin": {
                   "example": "any"
                 }
               }

@@ -26,12 +26,29 @@ export const createUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { first_name, last_name, email, phone_number, date_of_birth, address } =
-    req.body;
+  const {
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    date_of_birth,
+    address,
+    github,
+    linkedin,
+  } = req.body;
   try {
     const result = await pool.query(
-      "INSERT INTO users (first_name, last_name, email, phone_number, date_of_birth, address) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-      [first_name, last_name, email, phone_number, date_of_birth, address]
+      "INSERT INTO users (first_name, last_name, email, phone_number, date_of_birth, address, github, linkedin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+      [
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        date_of_birth,
+        address,
+        github,
+        linkedin,
+      ]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -44,12 +61,30 @@ export const updateUser = async (
   res: Response
 ): Promise<void> => {
   const id = parseInt(req.params.id);
-  const { first_name, last_name, email, phone_number, date_of_birth, address } =
-    req.body;
+  const {
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    date_of_birth,
+    address,
+    github,
+    linkedin,
+  } = req.body;
   try {
     const response = await pool.query(
-      "UPDATE users SET first_name = $1, last_name = $2, email = $3, phone_number = $4, date_of_birth = $5, address = $6 WHERE id = $7",
-      [first_name, last_name, email, phone_number, date_of_birth, address, id]
+      "UPDATE users SET first_name = $1, last_name = $2, email = $3, phone_number = $4, date_of_birth = $5, address = $6 WHERE id = $7, github = $8, linkedin = $9",
+      [
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        date_of_birth,
+        address,
+        github,
+        linkedin,
+        id,
+      ]
     );
     res.json("User updated successfully");
   } catch (e) {
