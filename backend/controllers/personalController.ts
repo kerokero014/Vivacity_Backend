@@ -35,10 +35,14 @@ export const createUser = async (
     address,
     github,
     linkedin,
+    fun_facts,
+    who_i_am,
+    hobbies,
   } = req.body;
+
   try {
     const result = await pool.query(
-      "INSERT INTO users (first_name, last_name, email, phone_number, date_of_birth, address, github, linkedin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+      "INSERT INTO users (first_name, last_name, email, phone_number, date_of_birth, address, github, linkedin, fun_facts, who_i_am, hobbies) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *",
       [
         first_name,
         last_name,
@@ -48,10 +52,14 @@ export const createUser = async (
         address,
         github,
         linkedin,
+        fun_facts,
+        who_i_am,
+        hobbies,
       ]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
+    console.error("Error creating user:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -70,10 +78,14 @@ export const updateUser = async (
     address,
     github,
     linkedin,
+    fun_facts,
+    who_i_am,
+    hobbies,
   } = req.body;
+
   try {
     const response = await pool.query(
-      "UPDATE users SET first_name = $1, last_name = $2, email = $3, phone_number = $4, date_of_birth = $5, address = $6 WHERE id = $7, github = $8, linkedin = $9",
+      "UPDATE users SET first_name = $1, last_name = $2, email = $3, phone_number = $4, date_of_birth = $5, address = $6, github = $7, linkedin = $8, fun_facts = $9, who_i_am = $10, hobbies = $11 WHERE id = $12",
       [
         first_name,
         last_name,
@@ -83,12 +95,16 @@ export const updateUser = async (
         address,
         github,
         linkedin,
+        fun_facts,
+        who_i_am,
+        hobbies,
         id,
       ]
     );
     res.json("User updated successfully");
   } catch (e) {
-    res.status(500).json(e);
+    console.error("Error updating user:", e);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 

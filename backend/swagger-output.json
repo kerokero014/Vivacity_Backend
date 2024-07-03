@@ -69,6 +69,15 @@
                 },
                 "linkedin": {
                   "example": "any"
+                },
+                "fun_facts": {
+                  "example": "any"
+                },
+                "who_i_am": {
+                  "example": "any"
+                },
+                "hobbies": {
+                  "example": "any"
                 }
               }
             }
@@ -146,6 +155,15 @@
                   "example": "any"
                 },
                 "linkedin": {
+                  "example": "any"
+                },
+                "fun_facts": {
+                  "example": "any"
+                },
+                "who_i_am": {
+                  "example": "any"
+                },
+                "hobbies": {
                   "example": "any"
                 }
               }
