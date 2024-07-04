@@ -20,7 +20,6 @@ app.use("/", mainRoutes);
 app.listen(port, async () => {
   console.log(`Example app listening at http://localhost:${port}`);
 
-  // Test the database connection on server startup and send the current date
   try {
     const res = await pool.query("SELECT NOW()");
     console.log("Database connected:", res.rows[0]);
