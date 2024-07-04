@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (_req: Request, res: Response) => {
-  res.send("Hello World!");
+  res.send("<h1>Hello World, this is Kevin Mendoza!</h1>");
 });
 
 app.use("/", mainRoutes);
