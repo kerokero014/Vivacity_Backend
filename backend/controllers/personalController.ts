@@ -57,9 +57,15 @@ export const createUser = async (
         hobbies,
       ]
     );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error("Error creating user:", err);
+    if (result && result.rows && result.rows.length > 0) {
+      res.status(201).json(result.rows[0]);
+    } else {
+      throw new Error("Failed to create user");
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      console.error("Error creating user:", e);
+    }
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
